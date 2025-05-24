@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IoT-Based Robot Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 270px;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+      padding: 40px 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .sidebar img {
+      width: 40px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar h1 {
+      font-size: 1.5em;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 400;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .sidebar a.active,
+    .sidebar a:hover {
+      font-weight: 700;
+    }
+
+    .main {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .hero {
+      position: relative;
+      height: 350px;
+      background-image: url('https://images.unsplash.com/photo-1581091012184-7f2310fc5a3c');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+
+    .hero h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+    .section {
+      padding: 50px 40px;
+      text-align: center;
+    }
+
+    .section h3 {
+      color: #8a004f;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      color: #333;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <img src="https://img.icons8.com/ios-filled/50/robot-2.png" alt="Robot Logo" />
+    <h1>IoT Robot</h1>
+    <a class="active" onclick="showPage('home')">Home</a>
+    <a onclick="showPage('history')">History</a>
+    <a onclick="showPage('team')">Team</a>
+    <a onclick="showPage('faq')">FAQ</a>
+  </div>
+
+  <div class="main" id="main-content">
+    <div class="hero">
+      <div class="hero-content">
+        <h2>DEVELOPMENT OF IOT-BASED ROBOT FOR REAL-TIME CUSTOMER FEEDBACK</h2>
+        <p>Sentiment Analysis Using Large Language Models</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Project Overview</h3>
+      <p>
+        This project focuses on designing and implementing an IoT-based robot capable of collecting real-time customer feedback and analyzing sentiment using advanced AI models known as Large Language Models (LLMs). The robot integrates hardware components such as an ESP32 microcontroller, voice and touch input, and cloud services like ThingSpeak for data logging.
+        <br/><br/>
+        With a sleek interface powered by the Nextion display and intelligent back-end processing via OpenAI APIs, the robot interprets user sentiment in natural language input, helping businesses gain instant insights. This solution aims to revolutionize how customer service data is gathered and interpreted, paving the way for smart, adaptive customer experience tools.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const pages = {
+      home: `
+        <div class="hero">
+          <div class="hero-content">
+            <h2>DEVELOPMENT OF IOT-BASED ROBOT FOR REAL-TIME CUSTOMER FEEDBACK</h2>
+            <p>Sentiment Analysis Using Large Language Models</p>
+          </div>
+        </div>
+        <div class="section">
+          <h3>Project Overview</h3>
+          <p>
+            This project focuses on designing and implementing an IoT-based robot capable of collecting real-time customer feedback and analyzing sentiment using advanced AI models known as Large Language Models (LLMs). The robot integrates hardware components such as an ESP32 microcontroller, voice and touch input, and cloud services like ThingSpeak for data logging.
+            <br/><br/>
+            With a sleek interface powered by the Nextion display and intelligent back-end processing via OpenAI APIs, the robot interprets user sentiment in natural language input, helping businesses gain instant insights. This solution aims to revolutionize how customer service data is gathered and interpreted, paving the way for smart, adaptive customer experience tools.
+          </p>
+        </div>
+      `,
+
+      history: `
+        <div class="section">
+          <h3>How would you describe the mission of this project to a friend?</h3>
+          <p>
+            We're building a smart robot that listens to customer feedback and understands their emotions using artificial intelligence. It helps businesses learn what their customers feel instantly, like a digital assistant that reads between the lines.
+          </p>
+        </div>
+
+        <div class="section">
+          <h3>A Brief History</h3>
+          <p>
+            The idea for this project emerged from the need for more intuitive and insightful ways to collect customer feedback. Traditional survey methods lacked emotional depth and real-time results. With the rise of IoT and Large Language Models (LLMs), we saw an opportunity to merge hardware and AI to create a smart robot that could gather and interpret customer sentiments in real time.
+          </p>
+        </div>
+
+        <div class="section">
+          <h3>A caption for the photo</h3>
+          <p>Prototype robot interacting with users during our initial campus demo day.</p>
+        </div>
+
+        <div class="section">
+          <h3>Where we are today</h3>
+          <p>
+            Our team has successfully assembled a working prototype that includes ESP32 microcontrollers,  a touchscreen display, and integrated OpenAI APIs. We’ve tested real-time data transfer to the cloud and performed basic sentiment analysis with promising results.
+          </p>
+        </div>
+
+        <div class="section">
+          <h3>Caption for a recent accomplishment</h3>
+          <p>First successful real-time sentiment feedback processed and logged in our cloud dashboard.</p>
+        </div>
+
+        <div class="section">
+          <h3>Caption for another recent accomplishment</h3>
+          <p>System integration test completed with all hardware and AI modules functioning in sync.</p>
+        </div>
+
+        <div class="section footer">
+          <p>Email: your.email@example.com | Address: 123 IoT Avenue, Tech City, PH | Phone: +63-912-345-6789</p>
+        </div>
+      `
+    };
+
+    function showPage(page) {
+      document.getElementById('main-content').innerHTML = pages[page];
+      document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+      document.querySelectorAll('.sidebar a').forEach(a => {
+        if (a.textContent.toLowerCase() === page) {
+          a.classList.add('active');
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
